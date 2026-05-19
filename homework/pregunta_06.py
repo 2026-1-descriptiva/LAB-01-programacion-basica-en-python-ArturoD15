@@ -7,6 +7,28 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_06():
+    leer = open("files/input/data.csv")
+    conteo ={}
+    resultado= []
+    for sep in leer:
+        columna= sep.split("\t")
+        claves= columna[4].split(",")
+        for par in claves:
+            valores= par.split(":")
+            clave_sep=valores[0]
+            num=int(valores[1])
+            if clave_sep in conteo:
+                if num < conteo[clave_sep][1]:
+                    conteo[clave_sep][1]= num
+                if num > conteo[clave_sep][0]:
+                    conteo[clave_sep][0] = num
+            else: conteo[clave_sep] = [num,num]
+    for clave_sep , v in conteo.items():
+        resultado.append((clave_sep,v[1],v[0]))
+    return sorted(resultado)
+
+
+
     """
     La columna 5 codifica un diccionario donde cada cadena de tres letras
     corresponde a una clave y el valor despues del caracter `:` corresponde al

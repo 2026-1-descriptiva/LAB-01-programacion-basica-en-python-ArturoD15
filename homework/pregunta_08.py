@@ -7,6 +7,19 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_08():
+    leer = open("files/input/data.csv")
+    conteo ={}
+    for numero in leer:
+        partes_numeros= numero.split("\t")
+        numero= int(partes_numeros[1])
+        letra= partes_numeros[0]
+        if numero in conteo:
+            conteo[numero].append(letra)
+        else:
+            conteo[numero] = [letra]
+    for orden in conteo:
+        conteo[orden]= sorted(set(conteo[orden]))
+    return sorted(conteo.items())
     """
     Genere una lista de tuplas, donde el primer elemento de cada tupla
     contiene  el valor de la segunda columna; la segunda parte de la tupla

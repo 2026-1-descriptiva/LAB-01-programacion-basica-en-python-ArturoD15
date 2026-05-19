@@ -6,11 +6,20 @@ utilizar pandas, numpy o scipy.
 """
 
 
+
 def pregunta_01():
-    """
-    Retorne la suma de la segunda columna.
+    leer = open("files/input/data.csv")
+    suma = 0
+    for columna in leer:
+        partes = columna.split("\t")
+        partes[1]
+        suma += int(partes[1])
+    return suma
+ 
+"""
+retorne la suma de la segunda columna
 
-    Rta/
-    214
+Rta/
+214
 
-    """
+"""
